@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Roshan Mahes - pset 6</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">Email</string>
+    <string name="emailHint">your.name@example.com</string>
+    <string name="password">Password (at least 6 characters)</string>
+    <string name="passwordHint">••••••••</string>
+    <string name="sign_in_text">Sign In</string>
+    <string name="football_data">Football - data</string>
+    <string name="sign_up">Sign up</string>
+    <string name="competitions">Competitions</string>
+</resources>

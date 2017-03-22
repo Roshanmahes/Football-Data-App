@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "709324136199",
+    "firebase_url": "https://pset6-roshanmahes.firebaseio.com",
+    "project_id": "pset6-roshanmahes",
+    "storage_bucket": "pset6-roshanmahes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709324136199:android:1aead21a7db12d47",
+        "android_client_info": {
+          "package_name": "nl.mprog.a10973710.pset6_roshanmahes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709324136199-29t8al76kk18jek196go21h2riq2l433.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nl.mprog.a10973710.pset6_roshanmahes",
+            "certificate_hash": "3755fec450f3bc8d9bbab89180c2c3bdb232b16e"
+          }
+        },
+        {
+          "client_id": "709324136199-udboq2qc7gg8hphs3m7u75jbdg92eauf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS59ul4QCfnc8Z6Dk4DoygRIKoheRHLkM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709324136199-udboq2qc7gg8hphs3m7u75jbdg92eauf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
