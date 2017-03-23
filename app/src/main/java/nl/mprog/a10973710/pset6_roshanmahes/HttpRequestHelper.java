@@ -11,7 +11,6 @@ class HttpRequestHelper {
 
     static synchronized String downloadFromServer(String link) {
         String result = "";
-
         URL url = null;
 
         try {
@@ -40,7 +39,6 @@ class HttpRequestHelper {
                 e.printStackTrace();
             }
         }
-
         return result;
     }
 }
