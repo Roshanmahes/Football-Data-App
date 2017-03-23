@@ -53,29 +53,8 @@ public class LeagueActivity extends AppCompatActivity {
         final ArrayList<String> teamNames = new ArrayList<>();
         final ArrayList<String> teamLinks = new ArrayList<>();
 
-        for (int i = 0; i < standing.length(); i++) {
-
-            try {
-                json_data = standing.getJSONObject(i);
-
-                String teamName = json_data.getString("teamName");
-                String played = json_data.getString("playedGames");
-                String goalDifference = json_data.getString("goalDifference");
-                String points = json_data.getString("points");
-
-                JSONObject links = json_data.getJSONObject("_links");
-                JSONObject team = links.getJSONObject("team");
-                String teamLink = team.getString("href");
-
-                // create listItems
-                teamNames.add((i + 1) + ". " + teamName + "\nPlayed: " + played
-                        + " | Points: " + points + " | Goal difference: " + goalDifference);
-                teamLinks.add(teamLink);
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
+        // put data at device screen
+        putData(teamNames, teamLinks);
 
         // view our data in a list
         ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(this,
@@ -105,6 +84,33 @@ public class LeagueActivity extends AppCompatActivity {
                 loadData(teamLink);
             }
         });
+    }
+
+    // view data at screen
+    private void putData(ArrayList<String> teamNames, ArrayList<String> teamLinks) {
+        for (int i = 0; i < standing.length(); i++) {
+
+            try {
+                json_data = standing.getJSONObject(i);
+
+                String teamName = json_data.getString("teamName");
+                String played = json_data.getString("playedGames");
+                String goalDifference = json_data.getString("goalDifference");
+                String points = json_data.getString("points");
+
+                JSONObject links = json_data.getJSONObject("_links");
+                JSONObject team = links.getJSONObject("team");
+                String teamLink = team.getString("href");
+
+                // create listItems
+                teamNames.add((i + 1) + ". " + teamName + "\nPlayed: " + played
+                        + " | Points: " + points + " | Goal difference: " + goalDifference);
+                teamLinks.add(teamLink);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // send data to AsyncTask class

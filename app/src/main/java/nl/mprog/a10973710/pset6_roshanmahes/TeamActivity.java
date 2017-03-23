@@ -41,6 +41,22 @@ public class TeamActivity extends AppCompatActivity {
         // store data into ArrayList
         final ArrayList<String> playersInfo = new ArrayList<>();
 
+        // put data at device screen
+        putData(playersInfo);
+
+            // view our data in a list
+            ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_expandable_list_item_1, playersInfo);
+
+            listView = (ListView) findViewById(R.id.teamList);
+            listView.setAdapter(mArrayAdapter);
+
+            // listen for clicks
+            setListener(); // playersInfo
+        }
+
+    // view data at screen
+    private void putData(ArrayList<String> playersInfo) {
         for (int i = 0; i < playerArray.length(); i++) {
 
             try {
@@ -63,19 +79,9 @@ public class TeamActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+    }
 
-            // view our data in a list
-            ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_expandable_list_item_1, playersInfo);
-
-            listView = (ListView) findViewById(R.id.teamList);
-            listView.setAdapter(mArrayAdapter);
-
-            // listen for clicks
-            setListener(); // playersInfo
-        }
-
-        // if no team info is available
+    // if no team info is available
         if (playerArray.length() == 0) {
             Toast.makeText(this, "No team info available.", Toast.LENGTH_SHORT).show();
             this.finish();

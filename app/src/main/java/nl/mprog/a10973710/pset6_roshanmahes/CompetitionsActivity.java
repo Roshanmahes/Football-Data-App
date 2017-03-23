@@ -39,6 +39,22 @@ public class CompetitionsActivity extends AppCompatActivity {
         ArrayList<String> items = new ArrayList<>();
         ArrayList<Integer> ids = new ArrayList<>();
 
+        // put data at device screen
+        putData(items, ids);
+
+        // view our data in a list
+        ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_expandable_list_item_1, items);
+
+        listView = (ListView) findViewById(R.id.competitionsList);
+        listView.setAdapter(mArrayAdapter);
+
+        // listen for clicks
+        setListener(ids);
+    }
+
+    // view data at screen
+    private void putData(ArrayList<String> items, ArrayList<Integer> ids) {
         for (int i = 1; i < competitions.length() - 1 ; i++) {
 
             // (Hardcoded): don't add the DFB-Pokal, because this is not a league
@@ -56,16 +72,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
-        // view our data in a list
-        ArrayAdapter<String> mArrayAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_expandable_list_item_1, items);
-
-        listView = (ListView) findViewById(R.id.competitionsList);
-        listView.setAdapter(mArrayAdapter);
-
-        // listen for clicks
-        setListener(ids);
     }
 
     private void setListener(final ArrayList<Integer> ids){
