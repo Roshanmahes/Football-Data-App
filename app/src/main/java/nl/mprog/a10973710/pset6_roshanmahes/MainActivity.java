@@ -75,13 +75,9 @@ public class MainActivity extends AppCompatActivity {
         password = passwordEditText.getText().toString();
 
         // check whether email and password are long enough
-        if (password.length() < 6) {
-            Toast.makeText(this, "Your password is too short!", Toast.LENGTH_SHORT).show();
-        }
-        if (email.isEmpty()) {
-            Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        isValid(email, password);
+
+        if (password.length() >= 6 && !email.isEmpty()) {
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -110,11 +106,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void loadData() {
-        CompetitionsAsyncTask asyncTask = new CompetitionsAsyncTask(this);
-        asyncTask.execute("");
-    }
-
     public void login(View view) {
 
         emailEditText = (EditText) findViewById(R.id.emailEditText);
@@ -124,38 +115,48 @@ public class MainActivity extends AppCompatActivity {
         password = passwordEditText.getText().toString();
 
         // check whether email and password are long enough
-        if (password.length() < 6) {
-            Toast.makeText(this, "Your password is too short!", Toast.LENGTH_SHORT).show();
+        isValid(email, password);
+
+        if (password.length() >= 6 && !email.isEmpty()) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            Log.d("sign in", "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                            // If sign in fails, display a message to the user. If sign in succeeds
+                            // the auth state listener will be notified and logic to handle the
+                            // signed in user can be handled in the listener.
+                            if (!task.isSuccessful()) {
+                                Log.w("email", "signInWithEmail:failed", task.getException());
+                                Toast.makeText(MainActivity.this, "Authentication failed",
+                                        Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Logged in user: " + email,
+                                        Toast.LENGTH_SHORT).show();
+
+                                loadData();
+                            }
+                        }
+                    });
+
+            // remove password text
+            passwordEditText.getText().clear();
         }
+    }
+
+    public void isValid(String email, String password) {
         if (email.isEmpty()) {
             Toast.makeText(this, "Please enter your email", Toast.LENGTH_SHORT).show();
         }
+        if (password.length() < 6) {
+            Toast.makeText(this, "Your password is too short!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("sign in", "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Log.w("email", "signInWithEmail:failed", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            Toast.makeText(MainActivity.this, "Logged in user: " + email,
-                                    Toast.LENGTH_SHORT).show();
-
-                            loadData();
-                        }
-                    }
-                });
-
-        // remove password text
-        passwordEditText.getText().clear();
+    public void loadData() {
+        CompetitionsAsyncTask asyncTask = new CompetitionsAsyncTask(this);
+        asyncTask.execute("");
     }
 
     // start CompetitionsActivity
