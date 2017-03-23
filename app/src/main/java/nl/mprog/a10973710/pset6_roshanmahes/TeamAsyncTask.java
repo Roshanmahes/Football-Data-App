@@ -24,7 +24,9 @@ class TeamAsyncTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        return HttpTeamHelper.downloadFromServer(params);
+
+        String link = params[0] + "/players";
+        return HttpRequestHelper.downloadFromServer(link);
     }
 
     @Override

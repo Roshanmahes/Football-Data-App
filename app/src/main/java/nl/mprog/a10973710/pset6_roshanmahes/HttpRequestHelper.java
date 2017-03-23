@@ -9,10 +9,9 @@ import java.net.URL;
 
 class HttpRequestHelper {
 
-    static synchronized String downloadFromServer() {
+    static synchronized String downloadFromServer(String link) {
         String result = "";
 
-        String link = "http://api.football-data.org/v1/competitions";
         URL url = null;
 
         try {

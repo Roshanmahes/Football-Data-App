@@ -24,7 +24,9 @@ class LeagueAsyncTask extends AsyncTask<String, Integer, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        return HttpLeagueHelper.downloadFromServer(params);
+
+        String link = "http://api.football-data.org/v1/competitions/" + params[0] + "/leagueTable";
+        return HttpRequestHelper.downloadFromServer(link);
     }
 
     @Override
