@@ -88,7 +88,7 @@ public class TeamActivity extends AppCompatActivity {
         }
     }
 
-    private void setListener() { // (final ArrayList<String> teamLinks)
+    private void setListener() {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

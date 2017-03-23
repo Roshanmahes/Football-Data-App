@@ -12,14 +12,13 @@ class HttpRequestHelper {
     static synchronized String downloadFromServer(String link) {
         String result = "";
         URL url = null;
+        HttpURLConnection connect;
 
         try {
             url = new URL(link);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
-        HttpURLConnection connect;
 
         if (url != null) {
             try {
