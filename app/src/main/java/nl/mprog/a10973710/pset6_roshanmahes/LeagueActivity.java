@@ -68,14 +68,6 @@ public class LeagueActivity extends AppCompatActivity {
     }
 
     private void setListener(final ArrayList<String> teamLinks){
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // add to favourites
-                return true;
-            }
-        });
         listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

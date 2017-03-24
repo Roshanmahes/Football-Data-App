@@ -55,7 +55,7 @@ public class CompetitionsActivity extends AppCompatActivity {
 
     // view data at screen
     private void putData(ArrayList<String> items, ArrayList<Integer> ids) {
-        for (int i = 1; i < competitions.length() - 1 ; i++) {
+        for (int i = 1; i < competitions.length() - 1; i++) {
 
             // (Hardcoded): don't add the DFB-Pokal, because this is not a league
             if (i == 6) continue;
@@ -75,14 +75,6 @@ public class CompetitionsActivity extends AppCompatActivity {
     }
 
     private void setListener(final ArrayList<Integer> ids){
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // add to favourites
-                return true;
-            }
-        });
         listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

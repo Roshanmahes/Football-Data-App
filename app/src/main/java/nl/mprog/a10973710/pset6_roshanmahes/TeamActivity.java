@@ -50,9 +50,6 @@ public class TeamActivity extends AppCompatActivity {
 
             listView = (ListView) findViewById(R.id.teamList);
             listView.setAdapter(mArrayAdapter);
-
-            // listen for clicks
-            setListener(); // playersInfo
         }
 
     // view data at screen
@@ -86,16 +83,5 @@ public class TeamActivity extends AppCompatActivity {
             Toast.makeText(this, "No team info available.", Toast.LENGTH_SHORT).show();
             this.finish();
         }
-    }
-
-    private void setListener() {
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
-                // add to favourites
-                return true;
-            }
-        });
     }
 }
