@@ -1,5 +1,5 @@
-# pset6-RoshanMahes
-A simple app which shows the standings of all big soccer leagues (login required). [![BCH compliance](https://bettercodehub.com/edge/badge/Roshanmahes/pset6-RoshanMahes)](https://bettercodehub.com/)
+# RoshanMahes-pset6 [![BCH compliance](https://bettercodehub.com/edge/badge/Roshanmahes/pset6-RoshanMahes)](https://bettercodehub.com/)
+A simple app which shows the standings of all big soccer leagues (login required).
 
 ![screenshot_1490359116](https://cloud.githubusercontent.com/assets/25647170/24294558/53fb94d6-1097-11e7-8007-191822742c0f.png)
 ![screenshot_1490359140](https://cloud.githubusercontent.com/assets/25647170/24294557/53fb7bea-1097-11e7-8658-1890f6dc24cf.png)
